@@ -1,0 +1,164 @@
+[
+    {
+        "name": "blobbyfish",
+        "rarity": "Common",
+        "price": "0.35",
+        "image_url": "fish\/common\/blobbyfish.jpg"
+    },
+    {
+        "name": "clownfish",
+        "rarity": "Common",
+        "price": "0.27",
+        "image_url": "fish\/common\/clownfish.jpg"
+    },
+    {
+        "name": "flyingfish",
+        "rarity": "Common",
+        "price": "0.30",
+        "image_url": "fish\/common\/flyingfish.jpg"
+    },
+    {
+        "name": "goldfish",
+        "rarity": "Common",
+        "price": "0.27",
+        "image_url": "fish\/common\/goldfish.jpg"
+    },
+    {
+        "name": "sardine",
+        "rarity": "Common",
+        "price": "0.27",
+        "image_url": "fish\/common\/sardine.jpg"
+    },
+    {
+        "name": "slimfish",
+        "rarity": "Common",
+        "price": "0.30",
+        "image_url": "fish\/common\/slimfish.jpg"
+    },
+    {
+        "name": "sunfish",
+        "rarity": "Common",
+        "price": "0.35",
+        "image_url": "fish\/common\/sunfish.jpg"
+    },
+    {
+        "name": "wrassefish",
+        "rarity": "Common",
+        "price": "0.35",
+        "image_url": "fish\/common\/wrassefish.jpg"
+    },
+    {
+        "name": "angelfish",
+        "rarity": "Uncommon",
+        "price": "0.40",
+        "image_url": "fish\/uncommon\/angelfish.jpg"
+    },
+    {
+        "name": "bettafish",
+        "rarity": "Uncommon",
+        "price": "0.45",
+        "image_url": "fish\/uncommon\/bettafish.jpg"
+    },
+    {
+        "name": "butterflyfish",
+        "rarity": "Uncommon",
+        "price": "0.45",
+        "image_url": "fish\/uncommon\/butterflyfish.jpg"
+    },
+    {
+        "name": "parrotfish",
+        "rarity": "Uncommon",
+        "price": "0.45",
+        "image_url": "fish\/uncommon\/parrotfish.jpg"
+    },
+    {
+        "name": "pufferfish",
+        "rarity": "Uncommon",
+        "price": "0.40",
+        "image_url": "fish\/uncommon\/pufferfish.jpg"
+    },
+    {
+        "name": "seahorse",
+        "rarity": "Uncommon",
+        "price": "0.45",
+        "image_url": "fish\/uncommon\/seahorse.jpg"
+    },
+    {
+        "name": "barracuda",
+        "rarity": "Rare",
+        "price": "0.55",
+        "image_url": "fish\/rare\/barracuda.jpg"
+    },
+    {
+        "name": "dorado",
+        "rarity": "Rare",
+        "price": "0.53",
+        "image_url": "fish\/rare\/dorado.jpg"
+    },
+    {
+        "name": "marlin",
+        "rarity": "Rare",
+        "price": "0.55",
+        "image_url": "fish\/rare\/marlin.jpg"
+    },
+    {
+        "name": "swordfish",
+        "rarity": "Rare",
+        "price": "0.52",
+        "image_url": "fish\/rare\/swordfish.jpg"
+    },
+    {
+        "name": "tuna",
+        "rarity": "Rare",
+        "price": "0.50",
+        "image_url": "fish\/rare\/tuna.jpg"
+    },
+    {
+        "name": "catfish",
+        "rarity": "Epic",
+        "price": "0.75",
+        "image_url": "fish\/epic\/catfish.jpg"
+    },
+    {
+        "name": "koi",
+        "rarity": "Epic",
+        "price": "0.80",
+        "image_url": "fish\/epic\/koi.jpg"
+    },
+    {
+        "name": "salmon",
+        "rarity": "Epic",
+        "price": "0.70",
+        "image_url": "fish\/epic\/salmon.jpg"
+    },
+    {
+        "name": "sturgeon",
+        "rarity": "Epic",
+        "price": "0.75",
+        "image_url": "fish\/epic\/sturgeon.jpg"
+    },
+    {
+        "name": "manta",
+        "rarity": "Legendary",
+        "price": "1.7",
+        "image_url": "fish\/legendary\/manta.jpg"
+    },
+    {
+        "name": "shark",
+        "rarity": "Legendary",
+        "price": "1.5",
+        "image_url": "fish\/legendary\/shark.jpg"
+    },
+    {
+        "name": "anglerfish",
+        "rarity": "Mythic",
+        "price": "7.5",
+        "image_url": "fish\/mythic\/anglerfish.jpg"
+    },
+    {
+        "name": "dragonfish",
+        "rarity": "Mythic",
+        "price": "7.5",
+        "image_url": "fish\/mythic\/dragonfish.jpg"
+    }
+]

@@ -1,0 +1,155 @@
+:root {
+    --bg-color: #f0f4f8;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --header-color: #1e293b;
+    --accent-color: #38bdf8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* Rarity Colors */
+    --common: #9ca3af;
+    --uncommon: #22c55e;
+    --rare: #3b82f6;
+    --epic: #a855f7;
+    --legendary: #f97316;
+    --mythic: #ef4444;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: var(--header-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.controls input, .controls select {
+    padding: 10px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    min-width: 250px;
+}
+
+#fish-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.fish-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 5px solid var(--accent-color);
+}
+
+.fish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.fish-card .fish-image-container {
+    width: 100%;
+    height: 180px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fish-card img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.fish-card .fish-info {
+    padding: 20px;
+}
+
+.fish-card .fish-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    text-transform: capitalize;
+}
+
+.fish-card .fish-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.fish-rarity, .fish-price {
+    font-weight: 600;
+}
+
+.fish-rarity span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.loader {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 40px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #94a3b8;
+}
+
+/* Dynamic Rarity Colors */
+.fish-card[data-rarity="Common"] { border-color: var(--common); }
+.fish-card[data-rarity="Uncommon"] { border-color: var(--uncommon); }
+.fish-card[data-rarity="Rare"] { border-color: var(--rare); }
+.fish-card[data-rarity="Epic"] { border-color: var(--epic); }
+.fish-card[data-rarity="Legendary"] { border-color: var(--legendary); }
+.fish-card[data-rarity="Mythic"] { border-color: var(--mythic); }
+
+.fish-card.hidden {
+    display: none;
+}

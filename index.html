@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Wiki - $FSHH Airdrop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎣 Fish Wiki</h1>
+            <p>List of all catchable fish in the $FSHH Airdrop Bot.</p>
+            <div class="controls">
+                <input type="text" id="searchInput" placeholder="Search fish name...">
+                <select id="rarityFilter">
+                    <option value="all">All Rarities</option>
+                    <option value="Common">Common</option>
+                    <option value="Uncommon">Uncommon</option>
+                    <option value="Rare">Rare</option>
+                    <option value="Epic">Epic</option>
+                    <option value="Legendary">Legendary</option>
+                    <option value="Mythic">Mythic</option>
+                </select>
+            </div>
+        </header>
+
+        <main id="fish-list">
+            <div class="loader">Loading fish data...</div>
+        </main>
+
+        <footer>
+            Powered by $FSHH Token
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
