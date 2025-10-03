@@ -1,5 +1,29 @@
 [
     {
+        "name": "old boot",
+        "rarity": "Trash",
+        "price": 0,
+        "image_url": "fish\/trash\/old boot.jpg"
+    },
+    {
+        "name": "plastic bottle",
+        "rarity": "Trash",
+        "price": 0,
+        "image_url": "fish\/trash\/plastic bottle.jpg"
+    },
+    {
+        "name": "rubber tire",
+        "rarity": "Trash",
+        "price": 0,
+        "image_url": "fish\/trash\/rubber tire.jpg"
+    },
+    {
+        "name": "tin can",
+        "rarity": "Trash",
+        "price": 0,
+        "image_url": "fish\/trash\/tin can.jpg"
+    },
+    {
         "name": "blobbyfish",
         "rarity": "Common",
         "price": "0.35",
@@ -160,29 +184,5 @@
         "rarity": "Mythic",
         "price": "7.5",
         "image_url": "fish\/mythic\/dragonfish.jpg"
-    },
-    {
-        "name": "old boot",
-        "rarity": "Trash",
-        "price": 1,
-        "image_url": "fish\/trash\/old boot.jpg"
-    },
-    {
-        "name": "plastic bottle",
-        "rarity": "Trash",
-        "price": 1,
-        "image_url": "fish\/trash\/plastic bottle.jpg"
-    },
-    {
-        "name": "rubber tire",
-        "rarity": "Trash",
-        "price": 1,
-        "image_url": "fish\/trash\/rubber tire.jpg"
-    },
-    {
-        "name": "tin can",
-        "rarity": "Trash",
-        "price": 1,
-        "image_url": "fish\/trash\/tin can.jpg"
     }
 ]
