@@ -4,28 +4,397 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fish Wiki - $FSHH Airdrop</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #131829;
+            --accent-blue: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --accent-gold: #fbbf24;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1729 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out reverse;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            font-size: 4rem;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .control-wrapper {
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .controls input,
+        .controls select {
+            padding: 14px 24px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            min-width: 280px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .controls input:focus,
+        .controls select:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .controls input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* Fish Grid */
+        #fish-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Fish Card */
+        .fish-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .fish-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--rarity-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .fish-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--rarity-color);
+        }
+
+        .fish-card:hover::before {
+            opacity: 1;
+        }
+
+        .fish-image-container {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fish-image-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .fish-card img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s ease;
+        }
+
+        .fish-card:hover img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .fish-info {
+            padding: 25px;
+        }
+
+        .fish-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+        }
+
+        .fish-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .fish-stat {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Rarity Colors */
+        .fish-card[data-rarity="Trash"] { --rarity-color: #6b7280; }
+        .fish-card[data-rarity="Common"] { --rarity-color: #9ca3af; }
+        .fish-card[data-rarity="Uncommon"] { --rarity-color: #22c55e; }
+        .fish-card[data-rarity="Rare"] { --rarity-color: #3b82f6; }
+        .fish-card[data-rarity="Epic"] { --rarity-color: #a855f7; }
+        .fish-card[data-rarity="Legendary"] { --rarity-color: #f97316; }
+        .fish-card[data-rarity="Mythic"] { --rarity-color: #ef4444; }
+
+        .loader {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 60px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .token-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .logo-icon {
+                font-size: 3rem;
+            }
+
+            #fish-list {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .controls input,
+            .controls select {
+                min-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎣 Fish Wiki</h1>
-            <p>List of all catchable fish in the $FSHH Airdrop Bot.</p>
+            <div class="logo-section">
+                <div class="logo-icon">🎣</div>
+            </div>
+            <h1>$FSHH Fish Wiki</h1>
+            <p class="subtitle">Discover all catchable species in the $FSHH ecosystem</p>
+            
             <div class="controls">
-                <input type="text" id="searchInput" placeholder="Search fish name...">
-                <select id="rarityFilter">
-                    <option value="all">All Rarities</option>
-                    <option value="Trash">Trash</option>
-                    <option value="Common">Common</option>
-                    <option value="Uncommon">Uncommon</option>
-                    <option value="Rare">Rare</option>
-                    <option value="Epic">Epic</option>
-                    <option value="Legendary">Legendary</option>
-                    <option value="Mythic">Mythic</option>
-                </select>
+                <div class="control-wrapper">
+                    <input type="text" id="searchInput" placeholder="🔍 Search fish name...">
+                </div>
+                <div class="control-wrapper">
+                    <select id="rarityFilter">
+                        <option value="all">All Rarities</option>
+                        <option value="Trash">Trash</option>
+                        <option value="Common">Common</option>
+                        <option value="Uncommon">Uncommon</option>
+                        <option value="Rare">Rare</option>
+                        <option value="Epic">Epic</option>
+                        <option value="Legendary">Legendary</option>
+                        <option value="Mythic">Mythic</option>
+                    </select>
+                </div>
             </div>
         </header>
 
@@ -34,10 +403,69 @@
         </main>
 
         <footer>
-            Powered by $FSHH Token
+            <div>© 2025 $FSHH Token. All rights reserved.</div>
+            <div class="token-badge">Powered by $FSHH</div>
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const fishData = [{"name":"old boot","rarity":"Trash","price":0,"image_url":"fish/trash/old boot.jpg"},{"name":"plastic bottle","rarity":"Trash","price":0,"image_url":"fish/trash/plastic bottle.jpg"},{"name":"rubber tire","rarity":"Trash","price":0,"image_url":"fish/trash/rubber tire.jpg"},{"name":"tin can","rarity":"Trash","price":0,"image_url":"fish/trash/tin can.jpg"},{"name":"blobbyfish","rarity":"Common","price":"0.35","image_url":"fish/common/blobbyfish.jpg"},{"name":"clownfish","rarity":"Common","price":"0.27","image_url":"fish/common/clownfish.jpg"},{"name":"flyingfish","rarity":"Common","price":"0.30","image_url":"fish/common/flyingfish.jpg"},{"name":"goldfish","rarity":"Common","price":"0.27","image_url":"fish/common/goldfish.jpg"},{"name":"sardine","rarity":"Common","price":"0.27","image_url":"fish/common/sardine.jpg"},{"name":"slimfish","rarity":"Common","price":"0.30","image_url":"fish/common/slimfish.jpg"},{"name":"sunfish","rarity":"Common","price":"0.35","image_url":"fish/common/sunfish.jpg"},{"name":"wrassefish","rarity":"Common","price":"0.35","image_url":"fish/common/wrassefish.jpg"},{"name":"angelfish","rarity":"Uncommon","price":"0.40","image_url":"fish/uncommon/angelfish.jpg"},{"name":"bettafish","rarity":"Uncommon","price":"0.45","image_url":"fish/uncommon/bettafish.jpg"},{"name":"butterflyfish","rarity":"Uncommon","price":"0.45","image_url":"fish/uncommon/butterflyfish.jpg"},{"name":"parrotfish","rarity":"Uncommon","price":"0.45","image_url":"fish/uncommon/parrotfish.jpg"},{"name":"pufferfish","rarity":"Uncommon","price":"0.40","image_url":"fish/uncommon/pufferfish.jpg"},{"name":"seahorse","rarity":"Uncommon","price":"0.45","image_url":"fish/uncommon/seahorse.jpg"},{"name":"barracuda","rarity":"Rare","price":"0.55","image_url":"fish/rare/barracuda.jpg"},{"name":"dorado","rarity":"Rare","price":"0.53","image_url":"fish/rare/dorado.jpg"},{"name":"marlin","rarity":"Rare","price":"0.55","image_url":"fish/rare/marlin.jpg"},{"name":"swordfish","rarity":"Rare","price":"0.52","image_url":"fish/rare/swordfish.jpg"},{"name":"tuna","rarity":"Rare","price":"0.50","image_url":"fish/rare/tuna.jpg"},{"name":"catfish","rarity":"Epic","price":"0.75","image_url":"fish/epic/catfish.jpg"},{"name":"koi","rarity":"Epic","price":"0.80","image_url":"fish/epic/koi.jpg"},{"name":"salmon","rarity":"Epic","price":"0.70","image_url":"fish/epic/salmon.jpg"},{"name":"sturgeon","rarity":"Epic","price":"0.75","image_url":"fish/epic/sturgeon.jpg"},{"name":"manta","rarity":"Legendary","price":"1.7","image_url":"fish/legendary/manta.jpg"},{"name":"shark","rarity":"Legendary","price":"1.5","image_url":"fish/legendary/shark.jpg"},{"name":"anglerfish","rarity":"Mythic","price":"7.5","image_url":"fish/mythic/anglerfish.jpg"},{"name":"dragonfish","rarity":"Mythic","price":"7.5","image_url":"fish/mythic/dragonfish.jpg"}];
+
+        const fishListContainer = document.getElementById('fish-list');
+        const searchInput = document.getElementById('searchInput');
+        const rarityFilter = document.getElementById('rarityFilter');
+        let allFishData = fishData;
+
+        const displayFish = (fishData) => {
+            fishListContainer.innerHTML = '';
+            if (fishData.length === 0) {
+                fishListContainer.innerHTML = '<p class="loader">No fish matching the criteria.</p>';
+                return;
+            }
+
+            fishData.forEach(fish => {
+                const card = document.createElement('div');
+                card.className = 'fish-card';
+                card.setAttribute('data-rarity', fish.rarity);
+
+                card.innerHTML = `
+                    <div class="fish-image-container">
+                        <img src="${fish.image_url}" alt="${fish.name}" loading="lazy">
+                    </div>
+                    <div class="fish-info">
+                        <h3 class="fish-name">${fish.name}</h3>
+                        <div class="fish-details">
+                            <div class="fish-stat">
+                                <div class="stat-value" style="color: var(--rarity-color);">${fish.rarity}</div>
+                                <div class="stat-label">Rarity</div>
+                            </div>
+                            <div class="fish-stat">
+                                <div class="stat-value">${fish.price} $FSHH</div>
+                                <div class="stat-label">Price</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                fishListContainer.appendChild(card);
+            });
+        };
+
+        const filterAndSearch = () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedRarity = rarityFilter.value;
+
+            const filteredFish = allFishData.filter(fish => {
+                const matchesSearch = fish.name.toLowerCase().includes(searchTerm);
+                const matchesRarity = (selectedRarity === 'all') || (fish.rarity === selectedRarity);
+                return matchesSearch && matchesRarity;
+            });
+
+            displayFish(filteredFish);
+        };
+
+        displayFish(allFishData);
+        searchInput.addEventListener('input', filterAndSearch);
+        rarityFilter.addEventListener('change', filterAndSearch);
+    </script>
 </body>
 </html>
