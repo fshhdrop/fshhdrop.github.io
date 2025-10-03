@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to set rarity color for the text
     const getRarityColor = (rarity) => {
         const colors = {
-            'Trash': '#000000',
+            'Trash': '#9ca3af',
             'Common': '#9ca3af',
             'Uncommon': '#22c55e',
             'Rare': '#3b82f6',
