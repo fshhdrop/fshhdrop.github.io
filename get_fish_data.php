@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 define('FISH_DIR', __DIR__ . '/fish/');
 
 // Daftar tier/rarity sesuai dengan nama folder
-$tiers = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic'];
+$tiers = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic', 'trash'];
 $all_fish = [];
 
 // Loop melalui setiap folder tier
